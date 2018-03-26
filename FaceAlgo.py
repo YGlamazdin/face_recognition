@@ -89,7 +89,7 @@ def find_faces_in_image(image, bluur, add_flag=False):
 
                 # производим поиск и в noname тоже
                 ret, dist = compare_face(face_descriptor, 0.5, True)
-                print("схожесть", dist, ret)
+                #print("схожесть", dist, ret)
 
                 #if ret:
                     #    if len(ret)>0:

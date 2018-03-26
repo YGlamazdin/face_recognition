@@ -307,7 +307,7 @@ def refresh_main_window():
     return
 
 root = Tk()
-root.title('Распознавание лиц. Проектная работа ЦРР')
+root.title('Система распознавания лиц. Проектная работа ЦРР')
 root.geometry('1220x735+10+10') # ширина=500, высота=400, x=300, y=200
 root.resizable(True, True) # размер окна может быть изменён только по горизонтали
 root.iconbitmap(default="../face_recognition/img/cdr.ico")
