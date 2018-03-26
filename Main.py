@@ -59,7 +59,7 @@ def del_selected(self):
 def OnSelect(event):
     global person, selected_persone, page_win_person_main, present
     #page_win_person_main = 0
-    print("select persone")
+    print("select person")
 
     #print("click")
     # selections = listbox.curselection()  # tuple of digit-string(s), aTupleOfSTRINGs, where digit-string(s) range from { 0, 1, .., N-1 }
@@ -108,9 +108,9 @@ def OpenCameraWindowFile():
     else:
         print("Файл не выбран")
 
-def WorkWindows():
-    print("Запускаем служебное окно")
-    WorkWindow.WindowsWork()
+# def WorkWindows():
+#     print("Запускаем служебное окно")
+#     WorkWindow.WindowsWork()
 
 def SortWindows():
     print("Запускаем сортировку персон")
@@ -125,9 +125,9 @@ def create_person():
 
 def savePerson():
     global e_name, e_second_name, persone
-    print ("save", e_name.get(), e_second_name.get())
+#    print ("save", e_name.get(), e_second_name.get())
     person.name = e_name.get()
-    person.second_name = e_second_name.get()
+    #person.second_name = e_second_name.get()
 
     person.save()
     #persone.get(name=e_name.get(), second_name=e_second_name.get(), birthday=date(2007, 1, 10), is_relative=True)
@@ -141,6 +141,10 @@ def refesh_persone():
     if present == False:
         panel.destroy()
     if selected_persone:
+        e_name.grid(row=0, column=1, padx=20)
+        l_name.grid(row=0, column=0, padx=20)
+        but_save.grid(row=0, column=2, padx=20)
+
         print("page_win_person", page_win_person_main)
         e_name.delete(0, END)
         e_name.insert(END, person.name)
@@ -298,6 +302,7 @@ def refresh_main_window():
 
     listbox.grid(row=1, column=0, padx=10, pady=10)
 
+
     refesh_persone()
     return
 
@@ -305,7 +310,7 @@ root = Tk()
 root.title('Распознавание лиц. Проектная работа ЦРР')
 root.geometry('1220x735+10+10') # ширина=500, высота=400, x=300, y=200
 root.resizable(True, True) # размер окна может быть изменён только по горизонтали
-root.iconbitmap(default="../FACE/img/cdr.ico")
+root.iconbitmap(default="../face_recognition/img/cdr.ico")
 
 frame1 = Frame(root)
 frame1.grid(row=0, column=0,  sticky=(N))
@@ -348,9 +353,9 @@ listbox.bind('<Button-3>', OnSelect2)
 
 
 
-e_name.grid(row=0, column=1, padx=20)
-l_name.grid(row=0, column=0, padx=20)
-but_save.grid(row=0, column=2, padx=20)
+# e_name.grid(row=0, column=1, padx=20)
+# l_name.grid(row=0, column=0, padx=20)
+# but_save.grid(row=0, column=2, padx=20)
 
 
 
@@ -368,7 +373,7 @@ listbox_faces.config(selectmode=MULTIPLE)
 #                                                                                       sticky=(N, W, E, S))
 # #but_del = Button(frame5, text='Удалить', command=lambda i=person: onDel(i)).grid(row=3, column=0, sticky=(N, W, E, S))
 
-img = ImageTk.PhotoImage(Image.open('../FACE/img/present.png'))
+img = ImageTk.PhotoImage(Image.open('../face_recognition/img/present.png'))
 
 panel = Label(frame6, image = img, width= 980, height= 675)
 panel.pack(side = "bottom", fill = "both", expand = "yes")
@@ -405,7 +410,7 @@ m.add_cascade(label="Персона", menu=hm)
 hm.add_command(label="Добавить персону", command=create_person)
 ofm = Menu(fm)
 hm.add_cascade(label="Удаления",menu=ofm)
-ofm.add_command(label="Удалить пустые персоны", command=FaceAlgo.delEmptyFaces())
+ofm.add_command(label="Удалить пустые персоны", command=FaceAlgo.delEmptyFaces)
 ofm.add_command(label="Удалить все персоны", command=ww.del_all_person)
 ofm.add_command(label="Удалить выбранную персону", command=del_person)
 ofm.add_command(label="Удалить пустые персоны",  command=delEmptyFaces)

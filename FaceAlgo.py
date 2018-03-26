@@ -89,11 +89,11 @@ def find_faces_in_image(image, bluur, add_flag=False):
 
                 # производим поиск и в noname тоже
                 ret, dist = compare_face(face_descriptor, 0.5, True)
-                print("схожесть", dist)
+                print("схожесть", dist, ret)
 
-                if ret:
+                #if ret:
                     #    if len(ret)>0:
-                    if len(ret) > 0:
+                if len(face_descriptor) > 0:
                         if dist>0.35:
                             print("Добавляем лицо в базу")
                             face_file = 'c:/faces_db/' + str(int(time.time())) + '.jpg'

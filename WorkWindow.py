@@ -11,7 +11,7 @@ import FaceAlgo
 #
 
 
-def make_all_person(i):
+def make_all_person():
     print("Выбираем все лица из noname. И делаем разнос по персонам")
     #начинаем перебор всех лиц, по похожести, и сравниваем с уж созданными персонами
     res,noname =db.search_person("noname")

@@ -56,6 +56,7 @@ def show_frame():
     for face_descriptor in face_descriptors:
         #отрисовываем и проверяем все найденные лица
         ret, dist = FaceAlgo.compare_face(face_descriptor[0])
+        print(ret, dist)
         if ret:
     #    if len(ret)>0:
             if len(ret)>0:
